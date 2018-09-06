@@ -9,8 +9,6 @@ import neopixel
 pixpin = board.D0
 numpix = 64
 
-move = 8
-
 strip = neopixel.NeoPixel(pixpin, numpix, brightness=0.1, auto_write=False)
 
 while True:
@@ -18,108 +16,43 @@ while True:
     # set brightness to a high value.  1.0 is the maximum value, 0.0 is the lowest
     strip.brightness = 0.1
     
-    for x in range(0, 64):
-        strip[x] = (0,0,0)
-    strip.write()
+    # All the dots moving in a single row
+    # All these dots are in row 0
+    strip[2] = (255,0,0)
+    strip[3] = (255,0,0)
+    strip[4] = (255,0,0)
 
-    # All the horizontal lines
-    # line 0, lights 2,3,4
-    x = 0
-    temp = 8*x+2 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-    temp = 8*x+3 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-    temp = 8*x+4 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
+    # All these dots are in row 3
+    strip[8*3+3] = (255,0,0)
+    strip[8*3+4] = (255,0,0)
 
-
-    # line 1, lights 2,5
-    x = 1
-    temp = 8*x+2 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-    temp = 8*x+5 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-
-
-    # line 2, lights 2,5
-    x = 2
-    temp = 8*x+2 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-    temp = 8*x+5 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-
-
-    # line 3, lights 2,3,4
-    x = 3
-    temp = 8*x+2 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-    temp = 8*x+3 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-    temp = 8*x+4 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-
-
-    # line 4, lights 2,5
-    x = 4
-    temp = 8*x+2 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-    temp = 8*x+5 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-
-
-    # line 5, lights 2,5
-    x = 5
-    temp = 8*x+2 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-    temp = 8*x+5 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-
-
-    # line 6, lights 2,5
-    x = 6
-    temp = 8*x+2 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-    temp = 8*x+5 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
+    # All these dots are in row 7
+    strip[8*7+3] = (255,0,0)
+    strip[8*7+4] = (255,0,0)
 
 
 
-    # line 7, lights 2,3,4
-    x = 7
-    temp = 8*x+2 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-    temp = 8*x+3 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
-    temp = 8*x+4 + move
-    if temp >= 8*x and temp < 8*(x+1):
-        strip[temp] = (255,0,0)
 
+    # All the dots moving in a column arrangement
+    # All these dots are in column 2
+    strip[8*1+2] = (255,0,0)
+    strip[8*2+2] = (255,0,0)
+    strip[8*3+2] = (255,0,0)
+    strip[8*4+2] = (255,0,0)
+    strip[8*5+2] = (255,0,0)
+    strip[8*6+2] = (255,0,0)
+    strip[8*7+2] = (255,0,0)
 
+    # All these dots are in column 5
+    strip[8*1+5] = (255,0,0)
+    strip[8*2+5] = (255,0,0)
+
+    # All these dots are also in column 5, note row 3 is a gap
+    strip[8*4+5] = (255,0,0)
+    strip[8*5+5] = (255,0,0)
+    strip[8*6+5] = (255,0,0)
 
 
 
 
     strip.write()
-    time.sleep(0.2)
-
-    move = move - 1
-    if move < -8:
-        move = 8
