@@ -22,7 +22,9 @@ while True:
         strip[x] = (0,0,0)
     strip.write()
 
-
+    # All the horizontal lines
+    # line 0, lights 2,3,4 (starting on screen)
+    # line 0, lights 8 (starting off screen)
     x = 0
     temp = 8*x+2 + move
     if temp >= 8*x and temp < 8*(x+1):
@@ -38,7 +40,8 @@ while True:
         strip[temp] = (255,0,0)
 
 
-
+    # line 1, lights 2,5 (starting on screen)
+    # line 1, lights 8 (starting off screen)
     x = 1
     temp = 8*x+2 + move
     if temp >= 8*x and temp < 8*(x+1):
@@ -51,7 +54,8 @@ while True:
         strip[temp] = (255,0,0)
 
 
-
+    # line 2, lights 2,5 (starting on screen)
+    # line 2, lights 8 (starting off screen)
     x = 2
     temp = 8*x+2 + move
     if temp >= 8*x and temp < 8*(x+1):
@@ -64,6 +68,8 @@ while True:
         strip[temp] = (255,0,0)
 
 
+    # line 3, lights 2,3,4 (starting on screen)
+    # line 3, lights 8 (starting off screen)
     x = 3
     temp = 8*x+2 + move
     if temp >= 8*x and temp < 8*(x+1):
@@ -79,7 +85,8 @@ while True:
         strip[temp] = (255,0,0)
 
 
-
+    # line 4, lights 2,5 (starting on screen)
+    # line 4, lights 8 (starting off screen)
     x = 4
     temp = 8*x+2 + move
     if temp >= 8*x and temp < 8*(x+1):
@@ -92,7 +99,8 @@ while True:
         strip[temp] = (255,0,0)
 
 
-
+    # line 5, lights 2,5 (starting on screen)
+    # line 5, lights 8 (starting off screen)
     x = 5
     temp = 8*x+2 + move
     if temp >= 8*x and temp < 8*(x+1):
@@ -132,16 +140,27 @@ while True:
     temp = 8*x+4 + move
     if temp >= 8*x and temp < 8*(x+1):
         strip[temp] = (255,0,0)
+    temp = 8*x+8 + move
+    if temp >= 8*x and temp < 8*(x+1):
+        strip[temp] = (255,0,0)
+    temp = 8*x+9 + move
+    if temp >= 8*x and temp < 8*(x+1):
+        strip[temp] = (255,0,0)
+    temp = 8*x+10 + move
+    if temp >= 8*x and temp < 8*(x+1):
+        strip[temp] = (255,0,0)
+    temp = 8*x+11 + move
+    if temp >= 8*x and temp < 8*(x+1):
+        strip[temp] = (255,0,0)
 
 
-    for i in range (8,12):
-        temp = 8*x+i + move
-        if temp >= 8*x and temp < 8*(x+1):
-            strip[temp] = (255,0,0)
+
+
+
 
     strip.write()
     time.sleep(0.2)
 
     move = move - 1
-    if move < -12:
+    if move < -8:
         move = 8
